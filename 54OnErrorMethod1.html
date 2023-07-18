@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The onerror() method</title>
+</head>
+<body>
+    <h1>JavaScript Exception Handling using the onerror() method</h1>
+    <script type="text/javascript">
+        function onClickDemo() {
+            document.getElementById("myDiv").style.color = "black";
+            document.getElementById("myDiv").innerHTML = "<p>You clicked the button.</p>";
+        }
+        window.onerror = function (msg, url, line) {
+            document.getElementById("myDiv").style.color = "Red";
+            document.getElementById("myDiv").innerHTML = "<p>Error Message : " + msg + "</p>";
+            document.getElementById("myDiv").innerHTML += "<p>URL : " + url + "</p>";
+            document.getElementById("myDiv").innerHTML += "<p>Line : " + line + "</p>";
+        }
+    </script>
+    <!-- The below button generates an ERROR, as the onErrorDemo() function does not exist. -->
+    <button onclick="onErrorDemo()">Click Me</button>
+    <div id="myDiv">
+        <p>Click the button to call the function that does not exist.</p>
+    </div>
+    <button onclick="onClickDemo()">Click Me</button>
+</body>
+</html>
